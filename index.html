@@ -221,7 +221,7 @@
 									  <div class="about-info">
 										<p><span class="title-s">Name: </span> <span>Ravi Prasad</span></p>
 										<p><span class="title-s">Job Role: </span> <span>System Engineer</span></p>
-										<p><span class="title-s">Experience: </span> <span>4 Years 1 Months</span></p>
+										<p><span class="title-s">Experience: </span> <span id= "demo"></span></p>
 										<p><span class="title-s">Address: </span> <span>Kolkata, India</span></p>
 									  </div>
 									</div>
@@ -270,7 +270,7 @@
 								<h1 class="big">About</h1>
 								<h2 class="mb-4">About Me</h2>
 								
-								<p>Experienced Full Stack Developer with 4.1 years of expertise
+								<p>Experienced Full Stack Developer with <span id="demo"></span> of expertise
 									in Java, React.js, and Spring Boot. Proficient in backend and
 									frontend development, CI/CD, cloud services (AWS, Azure),
 									and automation. Passionate about optimizing performance,
@@ -596,6 +596,32 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
+
+
+
+<script>
+  let start = '2021-06-03';
+  let startDate = new Date(start);
+  let currentDate = new Date();
+  // Extract year, month, and day components
+  let startYear = startDate.getFullYear();
+  let startMonth = startDate.getMonth();
+  let startDay = startDate.getDate();
+
+  let currentYear = currentDate.getFullYear();
+  let currentMonth = currentDate.getMonth();
+  let currentDay = currentDate.getDate();
+
+  // Calculate year difference
+  let years = currentYear - startYear;
+  let months = currentMonth - startMonth;
+  let days = currentDay - startDay;
+
+  // Adjust if current month/day is before start month/day
+  let formattedDate = currentDate.toISOString().slice(0, 10);
+  document.getElementById("demo").innerHTML =
+    ` ${years} years, ${months} months, and ${days} days`;
+</script>
     
   </body>
 </html>
